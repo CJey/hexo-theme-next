@@ -14,7 +14,7 @@ keywords: "计算机, 互联网, 网络, 软件, 架构, 技术"
 rss: false
 
 # Specify the date when the site was setup
-since: 2016
+since: 2015
 
 
 
@@ -73,7 +73,7 @@ font:
   enable: true
 
   # Uri of fonts host. E.g. //fonts.googleapis.com (Default)
-  host:
+  host: //fonts.lug.ustc.edu.cn
 
   # Global font settings used on <body> element.
   global:
