@@ -73,7 +73,7 @@ font:
   enable: true
 
   # Uri of fonts host. E.g. //fonts.googleapis.com (Default)
-  host: //fonts.lug.ustc.edu.cn
+  host: //fonts-googleapis-com.cjey.me
 
   # Global font settings used on <body> element.
   global:
@@ -241,7 +241,7 @@ mathjax:
 #duoshuo_shortname:
 
 # Disqus
-disqus_shortname: cjey
+#disqus_shortname: cjey
 
 # Baidu Share
 # Available value:
