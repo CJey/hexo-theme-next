@@ -3,8 +3,16 @@
 'use strict';
 
 const crypto = require('crypto');
-const { parse } = require('url');
 const nextFont = require('./font');
+
+function safeOrigin(u) {
+  try {
+    const parsed = new URL(u);
+    return parsed.hostname ? parsed.protocol + '//' + parsed.hostname : '';
+  } catch {
+    return '';
+  }
+}
 const nextUrl = require('./next-url');
 const { getVendors } = require('../events/lib/utils');
 
@@ -58,11 +66,11 @@ hexo.extend.helper.register('next_pre', function() {
   const { enable, host } = this.theme.font;
   const { internal, plugins, custom_cdn_url } = this.theme.vendors;
   const links = {
-    local   : this.theme.js && parse(this.theme.js).hostname ? parse(this.theme.js).protocol + '//' + parse(this.theme.js).hostname : '',
+    local   : this.theme.js ? safeOrigin(this.theme.js) : '',
     jsdelivr: 'https://cdn.jsdelivr.net',
     unpkg   : 'https://unpkg.com',
     cdnjs   : 'https://cdnjs.cloudflare.com',
-    custom  : custom_cdn_url && parse(custom_cdn_url).hostname ? parse(custom_cdn_url).protocol + '//' + parse(custom_cdn_url).hostname : ''
+    custom  : custom_cdn_url ? safeOrigin(custom_cdn_url) : ''
   };
   const h = enable ? host || 'https://fonts.googleapis.com' : '';
   const i = links[internal];

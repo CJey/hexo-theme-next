@@ -45,3 +45,57 @@ for $inject_mixin in hexo-config('injects.mixin')
 // --------------------------------------------------
 for $inject_style in hexo-config('injects.style')
   @import $inject_style;
+
+
+// Site-local customizations
+// --------------------------------------------------
+
+// Hide the decorative lines around site title.
+.logo-line-before, .logo-line-after, .brand .logo-line
+  display none
+
+// Larger, plain site title — no underline animation, no border decoration.
+.site-meta .brand
+  background transparent
+  padding 0
+  border none
+
+// Specificity needs to match Mist scheme's `.site-meta .site-title { font-weight: bolder }`.
+.site-meta .site-title
+  font-size 32px
+  font-weight 400
+  line-height 1.2
+  letter-spacing 2px
+
+// Slightly smaller body text overall.
+body
+  font-size 14px
+
+// A touch larger post titles.
+.post-title
+  font-size 1.87em
+
+// Brand block: keep title left, push nav to the right.
+.site-brand-container
+  display flex
+  align-items center
+  justify-content space-between
+
+// Right-align main nav items inline next to title.
+.site-nav
+  display flex
+  justify-content flex-end
+
+.main-menu
+  display flex
+  flex-wrap wrap
+  justify-content flex-end
+  padding 0
+  margin 0
+
+.main-menu .menu-item
+  margin 0 8px
+
+.main-menu .menu-item a
+  padding 6px 4px
+
